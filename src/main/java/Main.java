@@ -30,16 +30,18 @@ public class Main {
 
         boolean running = true;
 
+        Scanner scanner = new Scanner(System.in);
+        String input = "";
+
         while (running) {
-            System.out.println("Welcome to the Accounting Ledger");
+            System.out.println("Welcome to the Accounting Ledger home screen");
             System.out.println("Please choose an option:");
             System.out.println("D) Add Deposit");
             System.out.println("P) Make Payment (Debit)");
             System.out.println("L) Ledger");
             System.out.println("X) Exit");
 
-            Scanner scanner = new Scanner(System.in);
-            String input = scanner.nextLine();
+            input = scanner.nextLine();
 
             //cases depending on what the user inputs
             switch (input) {
@@ -48,17 +50,16 @@ public class Main {
                     break;
 
                 case "P":
-                    System.out.println("Adding payment");
+                    addPayment();
                     break;
 
                 case "L":
-                    System.out.println("Viewing ledger");
+                    viewLedger();
                     break;
 
                 case "X":
                     System.out.println("Exiting\n Goodbye");
                     running = false;
-                    scanner.close();
                     break;
 
                 default:
@@ -90,6 +91,55 @@ public class Main {
         catch (IOException e) {
             System.out.println("ERROR could not add information");
             e.printStackTrace();
+        }
+    }
+
+    public static void addPayment() {
+
+    }
+
+    public static void viewLedger() {
+        //method to initialize the ledger
+
+        boolean active = true;
+
+        while (active) {
+            System.out.println("Welcome to the Ledger page");
+            System.out.println("Please select an option:");
+            System.out.println("A) Display all entries");
+            System.out.println("D) Display entries that are only deposits");
+            System.out.println("P) Display only negative entries (or payments)");
+            System.out.println("R) View Reports screen");
+            System.out.println("H) Go back to home screen");
+
+            Scanner ledgScanner = new Scanner(System.in);
+            String ledgInput = ledgScanner.nextLine();
+
+            //cases depending on what user inputs
+            switch (ledgInput) {
+                case "A":
+                    viewLedgerMethods.displayAllEntries();
+                    break;
+
+                case "D":
+                    System.out.println("Only deposits");
+                    break;
+
+                case "P":
+                    System.out.println("Only negatives/payments");
+                    break;
+
+                case "R":
+                    System.out.println("Reports");
+                    break;
+
+                case "H":
+                    return;
+
+                default:
+                    System.out.println("Invalid option");
+                    break;
+            }
         }
     }
 }

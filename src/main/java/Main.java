@@ -83,7 +83,7 @@ public class Main {
         try {
             FileWriter writer = new FileWriter("transactions.csv", true);
 
-            writer.write("\n" + depInput);
+            writer.write("\n" + depInput + " - Deposit Entry");
             writer.close();
 
             System.out.println("Information added successfully");
@@ -122,7 +122,7 @@ public class Main {
                     break;
 
                 case "D":
-                    System.out.println("Only deposits");
+                    viewLedgerMethods.displayDeposits();
                     break;
 
                 case "P":

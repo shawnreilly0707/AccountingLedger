@@ -25,7 +25,25 @@ public class viewLedgerMethods {
     }
 
     public static void displayDeposits() {
+        try {
+            File writer = new File("transactions.csv");
+            Scanner fileScanner = new Scanner(writer);
 
+            while (fileScanner.hasNextLine()) {
+                String line = fileScanner.nextLine();
+
+                int first = line.indexOf(" - Deposit Entry");
+
+                String depositEntry = line.substring(0, first);
+                System.out.println(depositEntry);
+            }
+
+            fileScanner.close();
+        }
+        catch (IOException e) {
+            System.out.println("ERROR could not obtain transactions.csv");
+            e.printStackTrace();
+        }
     }
 
     public static void displayPayments() {

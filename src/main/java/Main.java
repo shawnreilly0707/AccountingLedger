@@ -16,7 +16,7 @@ public class Main {
             writer.close();
         }
         catch (IOException e) {
-            System.out.println("Could not read/create transactions.csv");
+            System.out.println("ERROR could not read/create transactions.csv");
             e.printStackTrace();
         }
         //end
@@ -41,9 +41,10 @@ public class Main {
             Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine();
 
+            //cases depending on what the user inputs
             switch (input) {
                 case "D":
-                    System.out.println("Adding deposit");
+                    addDeposit();
                     break;
 
                 case "P":
@@ -59,16 +60,36 @@ public class Main {
                     running = false;
                     scanner.close();
                     break;
+
+                default:
+                    System.out.println("Invalid option");
+                    break;
             }
 
-
-            break;
         }
     }
 
     public static void addDeposit() {
         //method to initialize the add deposit option
 
-        System.out.println("Please input your deposit information");
+        Scanner depScanner = new Scanner(System.in);
+
+        System.out.println("Please input your deposit information in this format:");
+        System.out.println("date|time|description|vendor|amount");
+        String depInput = depScanner.nextLine();
+
+        //reading the transactions.csv file and then adding the user's input to the file
+        try {
+            FileWriter writer = new FileWriter("transactions.csv", true);
+
+            writer.write("\n" + depInput);
+            writer.close();
+
+            System.out.println("Information added successfully");
+        }
+        catch (IOException e) {
+            System.out.println("ERROR could not add information");
+            e.printStackTrace();
+        }
     }
 }

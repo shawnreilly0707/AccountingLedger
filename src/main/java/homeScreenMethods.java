@@ -12,19 +12,42 @@ public class homeScreenMethods {
 
         System.out.println("Please input your deposit information in this format:");
         System.out.println("date|time|description|vendor|amount");
-        String depInput = depScanner.nextLine();
+        System.out.println("Example: \n 2026-11-02|1:18PM|Food and drink|Starbucks|$10.99");
 
-        //reading the transactions.csv file and then adding the user's input to the file
+        System.out.println("Date:");
+        String dateInput = depScanner.nextLine();
+
+        System.out.println("Time:");
+        String timeInput = depScanner.nextLine();
+
+        System.out.println("Description:");
+        String descInput = depScanner.nextLine();
+
+        System.out.println("Vendor:");
+        String venInput = depScanner.nextLine();
+
+        System.out.println("Amount (without $):");
+        float amntInput = depScanner.nextFloat();
+
+        Entry entry = new Entry(dateInput,
+                timeInput,
+                descInput,
+                venInput,
+                amntInput,
+                true);
+
         try {
             FileWriter writer = new FileWriter("transactions.csv", true);
 
-            writer.write("\n" + depInput + " - Deposit Entry");
+            writer.write("\n" + dateInput + "|" + timeInput + "|" +
+                    descInput + "|" + venInput + "|" + "$" + amntInput);
             writer.close();
 
             System.out.println("Information added successfully");
+
         }
         catch (IOException e) {
-            System.out.println("ERROR could not add information");
+            System.out.println("ERROR could not obtain transactions.csv");
             e.printStackTrace();
         }
     }

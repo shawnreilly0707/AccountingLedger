@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import java.io.IOException;
 import java.io.FileWriter;
+import java.util.ArrayList;
 
 public class homeScreenMethods {
     //all below are methods for the homeScreen() method
@@ -8,6 +9,7 @@ public class homeScreenMethods {
     public static void addDeposit() {
         //method to initialize the add deposit option
 
+        ArrayList<Entry> deposits = new ArrayList<>();
         Scanner depScanner = new Scanner(System.in);
 
         System.out.println("Please input your deposit information in this format: \n date|time|description|vendor|amount");
@@ -34,6 +36,8 @@ public class homeScreenMethods {
                 venInput,
                 amntInput,
                 true);
+
+        deposits.add(entry);
 
         try {
             FileWriter writer = new FileWriter("transactions.csv", true);

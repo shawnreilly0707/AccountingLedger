@@ -11,7 +11,7 @@ public class homeScreenMethods {
         Scanner depScanner = new Scanner(System.in);
 
         System.out.println("Please input your deposit information in this format: \n date|time|description|vendor|amount");
-        System.out.println("Example: \n 2026-11-02|1:18PM|Food and drink|Starbucks|-10.99");
+        System.out.println("Example: \n 2026-11-06|3:26AM|Paycheck|Sony Interactive|1000.00");
 
         System.out.println("Date:");
         String dateInput = depScanner.nextLine();
@@ -39,7 +39,7 @@ public class homeScreenMethods {
             FileWriter writer = new FileWriter("transactions.csv", true);
 
             writer.write("\n" + dateInput + "|" + timeInput + "|" +
-                    descInput + "|" + venInput + "|" + "-" + amntInput);
+                    descInput + "|" + venInput + "|" + amntInput);
             writer.close();
 
             System.out.println("Information added successfully");
@@ -57,7 +57,7 @@ public class homeScreenMethods {
         Scanner payScanner = new Scanner(System.in);
 
         System.out.println("Please input your payment information in this format: \n date|time|description|vendor|amount");
-        System.out.println("Example: \n 2026-11-06|3:26AM|Paycheck|Sony Interactive|1000.00");
+        System.out.println("Example: \n 2026-11-02|1:18PM|Food and drink|Starbucks|-10.99");
 
         System.out.println("Date:");
         String dateInput = payScanner.nextLine();
@@ -84,7 +84,7 @@ public class homeScreenMethods {
         try {
             FileWriter writer = new FileWriter("transactions.csv", true);
             writer.write("\n" + dateInput + "|" + timeInput + "|" +
-                    descInput + "|" + venInput + "|" + amntInput);
+                    descInput + "|" + venInput + "|" + "-" + amntInput);
 
             writer.close();
         }

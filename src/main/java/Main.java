@@ -7,34 +7,34 @@ public class Main {
 
         //setting up transactions.csv
         try {
-            FileWriter writer = new FileWriter("transactions.csv");
+            FileWriter writer = new FileWriter("transactions.csv"); //creating csv file
 
             writer.write("date|time|description|vendor|amount\n" +
                     "2023-04-15|10:13:25|ergonomic keyboard|Amazon|-89.50\n" +
-                    "2023-04-15|11:15:00|Invoice 1001 paid|Joe|1500.00");
+                    "2023-04-15|11:15:00|Invoice 1001 paid|Joe|1500.00"); //writing to csv file
 
             Entry entry1 = new Entry("2023-04-15",
                     "10:13:25",
                     "ergonomic keyboard",
                     "Amazon",
                     89.50f,
-                    true);
+                    true); //turning into manipulable objects
 
             Entry entry2 = new Entry("2023-04-15",
                     "11:15:00",
                     "Invoice 1001 paid",
                     "Joe",
                     1500.00f,
-                    false);
+                    false); //turning into manipulable objects
 
             homeScreenMethods.entries.add(entry1);
-            homeScreenMethods.entries.add(entry2);
+            homeScreenMethods.entries.add(entry2); //^^ adding to array of entries
 
-            writer.close();
+            writer.close(); //closing because it is no longer needed
         }
         catch (IOException e) {
             System.out.println("ERROR could not read/create transactions.csv");
-            e.printStackTrace();
+            e.printStackTrace(); //error message in case it breaks
         }
         //end
 
@@ -45,10 +45,10 @@ public class Main {
     public static void homeScreen() {
         //method to initialize the home screen
 
-        boolean running = true;
+        boolean running = true; //boolean for the later while loop
 
         Scanner scanner = new Scanner(System.in);
-        String input = "";
+        String input = ""; //the main scanner that will be used for the user's inputs on home screen
 
         while (running) {
             System.out.println("Welcome to the Accounting Ledger home screen");
@@ -62,24 +62,24 @@ public class Main {
 
             //cases depending on what the user inputs
             switch (input) {
-                case "D":
+                case "D": //to make deposits
                     homeScreenMethods.addDeposit();
                     break;
 
-                case "P":
+                case "P": //to make payments
                     homeScreenMethods.addPayment();
                     break;
 
-                case "L":
+                case "L": //to view the ledger screen
                     homeScreenMethods.viewLedger();
                     break;
 
-                case "X":
+                case "X": //to exit program
                     System.out.println("Exiting\n Goodbye");
                     running = false;
                     break;
 
-                default:
+                default: //in case user makes any other input that is not listed as a case
                     System.out.println("Invalid option");
                     break;
             }

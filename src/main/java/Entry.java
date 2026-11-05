@@ -1,3 +1,5 @@
+//class to create Entry objects using OOP
+
 public class Entry {
     private String date;
     private String time;

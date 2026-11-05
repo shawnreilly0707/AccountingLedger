@@ -18,14 +18,14 @@ public class Main {
                     "ergonomic keyboard",
                     "Amazon",
                     89.50f,
-                    true); //turning into manipulable objects
+                    false); //turning into manipulable objects
 
             Entry entry2 = new Entry("2023-04-15",
                     "11:15:00",
                     "Invoice 1001 paid",
                     "Joe",
                     1500.00f,
-                    false); //turning into manipulable objects
+                    true); //turning into manipulable objects
 
             Entry.entries.add(entry1);
             Entry.entries.add(entry2); //^^ adding to array of entries

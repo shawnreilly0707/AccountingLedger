@@ -31,11 +31,7 @@ public class viewLedgerMethods {
 
         for (Entry entry : Entry.entries) { //iterating through array of Entries
             if (entry.isDepositEntry()) { //checking if an Entry has true or false boolean; in this case we want true
-                System.out.println(entry.getDate() + "|" +
-                        entry.getTime() + "|" +
-                        entry.getDescription() + "|" +
-                        entry.getVendor() + "|" +
-                        entry.getAmount()); //printing the Entry if found
+                Entry.printEntry(entry); //printing the Entry if found
             }
         }
     }
@@ -45,11 +41,7 @@ public class viewLedgerMethods {
 
         for (Entry entry : Entry.entries) { //iterating through array of Entries
             if (!entry.isDepositEntry()) { //checking if Entry has true or false boolean; in this case we want false
-                System.out.println(entry.getDate() + "|" +
-                        entry.getTime() + "|" +
-                        entry.getDescription() + "|" +
-                        entry.getVendor() + "|" +
-                        entry.getAmount()); //printing Entry if found
+                Entry.printEntry(entry); //printing Entry if found
             }
         }
     }
@@ -57,9 +49,9 @@ public class viewLedgerMethods {
     public static void viewReports() {
         //method to initialize reports screen
 
-        boolean running = true;
+        boolean running = true; //boolean to control while loop
 
-        Scanner repScanner = new Scanner(System.in);
+        Scanner repScanner = new Scanner(System.in); //main scanner used for user's inputs on reports
 
         while (running) {
             System.out.println("Welcome to the Reports screen");
@@ -72,33 +64,33 @@ public class viewLedgerMethods {
             System.out.println("5) Search by Vendor");
             System.out.println("0) Go back to Ledger page");
 
-            int repInput = repScanner.nextInt();
+            int repInput = repScanner.nextInt(); //the input the user will put
 
             switch (repInput) {
-                case 1:
+                case 1: //month to date
                     viewReportsMethods.monthToDate();
                     break;
 
-                case 2:
+                case 2: //previous month
                     viewReportsMethods.prevMonth();
                     break;
 
-                case 3:
+                case 3: //year to date
                     viewReportsMethods.yearToDate();
                     break;
 
-                case 4:
+                case 4: //previous year
                     viewReportsMethods.prevYear();
                     break;
 
-                case 5:
+                case 5: //search by vendor
                     viewReportsMethods.searchByVendor();
                     break;
 
-                case 0:
+                case 0: //return to ledger page
                     return;
 
-                default:
+                default: //in case user puts something not listed in a case
                     System.out.println("Invalid option");
                     break;
             }

@@ -28,7 +28,7 @@ public class viewReportsMethods {
 
         boolean found = false;
 
-        for (Entry entry : homeScreenMethods.entries) {
+        for (Entry entry : Entry.entries) {
             if (entry.getVendor().equalsIgnoreCase(venInput)) {
                 System.out.println(entry.getDate() + "|" +
                         entry.getTime() + "|" +

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 public class homeScreenMethods {
     //all below are methods for the homeScreen() method
-    public static ArrayList<Entry> entries = new ArrayList<>(); //global array for entries that can be used anywhere
 
     public static void addDeposit() {
         //method to initialize the add deposit option
@@ -38,7 +37,7 @@ public class homeScreenMethods {
                 amntInput,
                 true); //creating a new Entry object based on the user's input, true because it is a deposit
 
-        homeScreenMethods.entries.add(entry); //adding that new Entry to the array of Entries
+        Entry.entries.add(entry); //adding that new Entry to the array of Entries
 
         try {
             FileWriter writer = new FileWriter("transactions.csv", true); //attempting to read the csv file
@@ -87,7 +86,7 @@ public class homeScreenMethods {
                 amntInput,
                 false); //creating a new Entry object based on user's inputs, false because it is not a deposit
 
-        homeScreenMethods.entries.add(entry); //adding new Entry to array of Entries
+        Entry.entries.add(entry); //adding new Entry to array of Entries
 
         try {
             FileWriter writer = new FileWriter("transactions.csv", true); //attempting to read csv file

@@ -29,7 +29,7 @@ public class viewLedgerMethods {
     public static void displayDeposits() {
         //method to display only deposits
 
-        for (Entry entry : homeScreenMethods.entries) { //iterating through array of Entries
+        for (Entry entry : Entry.entries) { //iterating through array of Entries
             if (entry.isDepositEntry()) { //checking if an Entry has true or false boolean; in this case we want true
                 System.out.println(entry.getDate() + "|" +
                         entry.getTime() + "|" +
@@ -43,7 +43,7 @@ public class viewLedgerMethods {
     public static void displayPayments() {
         //method to display only payments
 
-        for (Entry entry : homeScreenMethods.entries) { //iterating through array of Entries
+        for (Entry entry : Entry.entries) { //iterating through array of Entries
             if (!entry.isDepositEntry()) { //checking if Entry has true or false boolean; in this case we want false
                 System.out.println(entry.getDate() + "|" +
                         entry.getTime() + "|" +

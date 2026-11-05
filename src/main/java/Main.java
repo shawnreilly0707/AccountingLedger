@@ -27,8 +27,8 @@ public class Main {
                     1500.00f,
                     false); //turning into manipulable objects
 
-            homeScreenMethods.entries.add(entry1);
-            homeScreenMethods.entries.add(entry2); //^^ adding to array of entries
+            Entry.entries.add(entry1);
+            Entry.entries.add(entry2); //^^ adding to array of entries
 
             writer.close(); //closing because it is no longer needed
         }

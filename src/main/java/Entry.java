@@ -1,6 +1,9 @@
 //class to create Entry objects using OOP
+import java.util.ArrayList;
 
 public class Entry {
+    public static ArrayList<Entry> entries = new ArrayList<>(); //global array for entries that can be used anywhere
+
     private String date;
     private String time;
     private String description;

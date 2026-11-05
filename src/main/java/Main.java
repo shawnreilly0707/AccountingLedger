@@ -13,6 +13,23 @@ public class Main {
                     "2023-04-15|10:13:25|ergonomic keyboard|Amazon|-89.50\n" +
                     "2023-04-15|11:15:00|Invoice 1001 paid|Joe|1500.00");
 
+            Entry entry1 = new Entry("2023-04-15",
+                    "10:13:25",
+                    "ergonomic keyboard",
+                    "Amazon",
+                    89.50f,
+                    true);
+
+            Entry entry2 = new Entry("2023-04-15",
+                    "11:15:00",
+                    "Invoice 1001 paid",
+                    "Joe",
+                    1500.00f,
+                    false);
+
+            homeScreenMethods.entries.add(entry1);
+            homeScreenMethods.entries.add(entry2);
+
             writer.close();
         }
         catch (IOException e) {

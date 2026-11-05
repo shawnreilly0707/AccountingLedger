@@ -25,12 +25,31 @@ public class viewLedgerMethods {
     }
 
     public static void displayDeposits() {
-        File file = new File("transactions.csv");
+        //method to display only deposits
 
+        for (Entry entry : homeScreenMethods.entries) {
+            if (entry.isDepositEntry()) {
+                System.out.println(entry.getDate() + "|" +
+                        entry.getTime() + "|" +
+                        entry.getDescription() + "|" +
+                        entry.getVendor() + "|" +
+                        entry.getAmount());
+            }
+        }
     }
 
     public static void displayPayments() {
+        //method to display only payments
 
+        for (Entry entry : homeScreenMethods.entries) {
+            if (!entry.isDepositEntry()) {
+                System.out.println(entry.getDate() + "|" +
+                        entry.getTime() + "|" +
+                        entry.getDescription() + "|" +
+                        entry.getVendor() + "|" +
+                        entry.getAmount());
+            }
+        }
     }
 
     public static void viewReports() {

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class homeScreenMethods {
     //all below are methods for the homeScreen() method
+    public static ArrayList<Entry> entries = new ArrayList<>();
 
     public static void addDeposit() {
         //method to initialize the add deposit option
@@ -37,7 +38,7 @@ public class homeScreenMethods {
                 amntInput,
                 true);
 
-        deposits.add(entry);
+        homeScreenMethods.entries.add(entry);
 
         try {
             FileWriter writer = new FileWriter("transactions.csv", true);
@@ -85,6 +86,8 @@ public class homeScreenMethods {
                 amntInput,
                 false);
 
+        homeScreenMethods.entries.add(entry);
+
         try {
             FileWriter writer = new FileWriter("transactions.csv", true);
             writer.write("\n" + dateInput + "|" + timeInput + "|" +
@@ -126,7 +129,7 @@ public class homeScreenMethods {
                     break;
 
                 case "P":
-                    System.out.println("Only negatives/payments");
+                    viewLedgerMethods.displayPayments();
                     break;
 
                 case "R":

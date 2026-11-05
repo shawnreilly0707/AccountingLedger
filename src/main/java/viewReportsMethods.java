@@ -29,7 +29,9 @@ public class viewReportsMethods {
     public static void prevMonth() {
         //method to sort by previous month
 
-        LocalDate previousMonth = LocalDate.now().minusMonths(1); //variable for the previous month based on today's month
+        LocalDate previousMonth = LocalDate.now().minusMonths(1);
+
+        //variable for the previous month based on today's month
 
         boolean pmFound = false;
 

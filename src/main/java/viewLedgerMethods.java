@@ -55,8 +55,53 @@ public class viewLedgerMethods {
     }
 
     public static void viewReports() {
-        //method to intialize reports screen
+        //method to initialize reports screen
 
+        boolean running = true;
 
+        Scanner repScanner = new Scanner(System.in);
+
+        while (running) {
+            System.out.println("Welcome to the Reports screen");
+            System.out.println("You may sort entries by however you like");
+            System.out.println("Please choose an option:");
+            System.out.println("1) Month to Date");
+            System.out.println("2) Previous Month");
+            System.out.println("3) Year to Date");
+            System.out.println("4) Previous Year");
+            System.out.println("5) Search by Vendor");
+            System.out.println("0) Go back to Ledger page");
+
+            int repInput = repScanner.nextInt();
+
+            switch (repInput) {
+                case 1:
+                    viewReportsMethods.monthToDate();
+                    break;
+
+                case 2:
+                    viewReportsMethods.prevMonth();
+                    break;
+
+                case 3:
+                    viewReportsMethods.yearToDate();
+                    break;
+
+                case 4:
+                    viewReportsMethods.prevYear();
+                    break;
+
+                case 5:
+                    viewReportsMethods.searchByVendor();
+                    break;
+
+                case 0:
+                    return;
+
+                default:
+                    System.out.println("Invalid option");
+                    break;
+            }
+        }
     }
 }

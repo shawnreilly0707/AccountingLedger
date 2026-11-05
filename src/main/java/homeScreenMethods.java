@@ -134,7 +134,7 @@ public class homeScreenMethods {
                     break;
 
                 case "R": //viewing reports page
-                    System.out.println("Reports");
+                    viewLedgerMethods.viewReports();
                     break;
 
                 case "H": //return to home page

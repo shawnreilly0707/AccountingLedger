@@ -6,22 +6,39 @@ import java.io.File;
 public class Main {
     static void main() {
 
-            Entry entry1 = new Entry("2023-04-15",
-                    "10:13:25",
-                    "ergonomic keyboard",
-                    "Amazon",
-                    89.50f,
-                    false); //turning into manipulable objects
+        //the try catch will read through transactions.csv and add each entry to the public entries array
+        //at each initialization of the program
+        try {
+            File file = new File("transactions.csv");
 
-            Entry entry2 = new Entry("2023-04-15",
-                    "11:15:00",
-                    "Invoice 1001 paid",
-                    "Joe",
-                    1500.00f,
-                    true); //turning into manipulable objects
+            Scanner fileScanner = new Scanner(file);
 
-            Entry.entries.add(entry1);
-            Entry.entries.add(entry2); //^^ adding to array of entries
+            fileScanner.nextLine(); //skipping first line
+
+            while (fileScanner.hasNextLine()) {
+                String line = fileScanner.nextLine();
+
+                String[] parts = line.split("\\|"); //splits each entry by "|"
+
+                float amount = Float.parseFloat(parts[4]);
+
+                Entry entry = new Entry(
+                        parts[0], //date
+                        parts[1], //time
+                        parts[2], //description
+                        parts[3], //vendor
+                        amount, //amount
+                        amount > 0 //isDepositEntry or not
+                );
+
+                Entry.entries.add(entry);
+            }
+            fileScanner.close();
+        }
+        catch (IOException e) {
+            System.out.println("ERROR could not obtain transactions.csv");
+            e.printStackTrace();
+        }
 
         //running first-time home screen
         homeScreen();

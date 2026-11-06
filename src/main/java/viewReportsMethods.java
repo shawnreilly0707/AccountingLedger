@@ -29,7 +29,12 @@ public class viewReportsMethods {
     public static void prevMonth() {
         //method to sort by previous month
 
-        LocalDate previousMonth = LocalDate.now().minusMonths(1);
+        Scanner pmScanner = new Scanner(System.in);
+        System.out.println("Please enter a month 1-12:");
+
+        int pmInput = Integer.parseInt(pmScanner.nextLine()); //integer that will be the user's input
+
+        //LocalDate previousMonth = LocalDate.now().minusMonths(pmInput); //subtracting months by today's month using user input
 
         //variable for the previous month based on today's month
 
@@ -38,8 +43,8 @@ public class viewReportsMethods {
         for (Entry entry : Entry.entries) {
             LocalDate entryDate = LocalDate.parse(entry.getDate());
 
-            if (entryDate.getMonth() == previousMonth.getMonth() &&
-            entryDate.getYear() == previousMonth.getYear()) { //checking if the Entry's month and year are equivalent to the month before
+            if (entryDate.getMonthValue() == pmInput &&
+            entryDate.getYear() == LocalDate.now().getYear()) { //checking if the Entry's month and year are equivalent to the month before
                 Entry.printEntry(entry);
 
                 pmFound = true;
@@ -47,7 +52,7 @@ public class viewReportsMethods {
         }
 
         if (!pmFound) {
-            System.out.println("No entries from previous month");
+            System.out.println("No entries from that month");
         }
     }
 
@@ -76,14 +81,17 @@ public class viewReportsMethods {
     public static void prevYear() {
         //method to search by previous year
 
-        int previousYear = LocalDate.now().getYear() - 1; //integer that is the year minus one from today's year
+        Scanner pyScanner = new Scanner(System.in);
+        System.out.println("Please put which year");
+
+        int pyInput = pyScanner.nextInt(); //integer that will be the year the user inputs
 
         boolean pyFound = false;
 
         for (Entry entry : Entry.entries) {
             LocalDate entryDate = LocalDate.parse(entry.getDate());
 
-            if (entryDate.getYear() == previousYear) { //checking if Entry's year is equal to previous year
+            if (entryDate.getYear() == pyInput) { //checking if Entry's year is equal to inputted year
                 Entry.printEntry(entry);
 
                 pyFound = true;
@@ -91,7 +99,7 @@ public class viewReportsMethods {
         }
 
         if (!pyFound) {
-            System.out.println("No entries from previous year");
+            System.out.println("No entries from year: " + pyInput);
         }
     }
 

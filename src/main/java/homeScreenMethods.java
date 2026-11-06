@@ -76,7 +76,7 @@ public class homeScreenMethods {
         System.out.println("Vendor:");
         String venInput = payScanner.nextLine(); //vendor of Entry
 
-        System.out.println("Amount (without $):");
+        System.out.println("Amount (without $; add -):");
         float amntInput = payScanner.nextFloat(); //how much the payment costs
 
         Entry entry = new Entry(dateInput,
@@ -91,7 +91,7 @@ public class homeScreenMethods {
         try {
             FileWriter writer = new FileWriter("transactions.csv", true); //attempting to read csv file
             writer.write("\n" + dateInput + "|" + timeInput + "|" +
-                    descInput + "|" + venInput + "|" + "-" + amntInput); //adding new payment Entry to file
+                    descInput + "|" + venInput + "|" + amntInput); //adding new payment Entry to file
 
             writer.close();
         }

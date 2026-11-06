@@ -50,21 +50,10 @@ public class Entry {
     }
 
     public static void printEntry(Entry entry) {
-        if (entry.isDepositEntry()) {
-            System.out.println(entry.getDate() + "|" +
-                    entry.getTime() + "|" +
-                    entry.getDescription() + "|" +
-                    entry.getVendor() + "|" +
-                    entry.getAmount());
-        }
-        if (!entry.isDepositEntry()) {
-            System.out.println(entry.getDate() + "|" +
-                    entry.getTime() + "|" +
-                    entry.getDescription() + "|" +
-                    entry.getVendor() + "|" + "-" +
-                    entry.getAmount());
-        }
-
-
+        System.out.println(entry.getDate() + "|" +
+                entry.getTime() + "|" +
+                entry.getDescription() + "|" +
+                entry.getVendor() + "|" +
+                entry.getAmount());
     }
 }

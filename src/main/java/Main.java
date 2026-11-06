@@ -36,12 +36,14 @@ public class Main {
         String input = ""; //the main scanner that will be used for the user's inputs on home screen
 
         while (running) {
+            System.out.println("===========================================");
             System.out.println("Welcome to the Accounting Ledger home screen");
             System.out.println("Please choose an option:");
             System.out.println("D) Add Deposit");
             System.out.println("P) Make Payment (Debit)");
             System.out.println("L) Ledger");
             System.out.println("X) Exit");
+            System.out.println("===========================================");
 
             input = scanner.nextLine();
 

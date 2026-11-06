@@ -54,6 +54,7 @@ public class viewLedgerMethods {
         Scanner repScanner = new Scanner(System.in); //main scanner used for user's inputs on reports
 
         while (running) {
+            System.out.println("===========================================");
             System.out.println("Welcome to the Reports screen");
             System.out.println("You may sort entries by however you like");
             System.out.println("Please choose an option:");
@@ -63,6 +64,7 @@ public class viewLedgerMethods {
             System.out.println("4) Previous Year");
             System.out.println("5) Search by Vendor");
             System.out.println("0) Go back to Ledger page");
+            System.out.println("===========================================");
 
             int repInput = repScanner.nextInt(); //the input the user will put
 

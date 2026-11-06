@@ -107,6 +107,7 @@ public class homeScreenMethods {
         boolean active = true; //boolean to control while loop
 
         while (active) {
+            System.out.println("===========================================");
             System.out.println("Welcome to the Ledger page");
             System.out.println("Please select an option:");
             System.out.println("A) Display all entries");
@@ -114,6 +115,7 @@ public class homeScreenMethods {
             System.out.println("P) Display only negative entries (or payments)");
             System.out.println("R) View Reports screen");
             System.out.println("H) Go back to home screen");
+            System.out.println("===========================================");
 
             Scanner ledgScanner = new Scanner(System.in); //main scanner used for inputs
             String ledgInput = ledgScanner.nextLine();

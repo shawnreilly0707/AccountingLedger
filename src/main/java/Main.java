@@ -1,17 +1,10 @@
 import java.io.IOException;
 import java.io.FileWriter;
 import java.util.Scanner;
+import java.io.File;
 
 public class Main {
     static void main() {
-
-        //setting up transactions.csv
-        try {
-            FileWriter writer = new FileWriter("transactions.csv"); //creating csv file
-
-            writer.write("date|time|description|vendor|amount\n" +
-                    "2023-04-15|10:13:25|ergonomic keyboard|Amazon|-89.50\n" +
-                    "2023-04-15|11:15:00|Invoice 1001 paid|Joe|1500.00"); //writing to csv file
 
             Entry entry1 = new Entry("2023-04-15",
                     "10:13:25",
@@ -29,14 +22,6 @@ public class Main {
 
             Entry.entries.add(entry1);
             Entry.entries.add(entry2); //^^ adding to array of entries
-
-            writer.close(); //closing because it is no longer needed
-        }
-        catch (IOException e) {
-            System.out.println("ERROR could not read/create transactions.csv");
-            e.printStackTrace(); //error message in case it breaks
-        }
-        //end
 
         //running first-time home screen
         homeScreen();
